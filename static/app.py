@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,render_template
 from werkzeug.exceptions import BadRequest
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
@@ -25,11 +25,17 @@ GET_RATIO = 'SP_L_RATIO_01'
 ADD_ENTITY = 'SP_I_ENTITY_01'
 
 
-# TODO: Ruta para recibir la solicitud GET
-@app.route('/', methods=['GET'])
+# TODO: Home
+@app.route('/')
 def home():
     # Abre una conexión con el engine
-   try:
+    return render_template('index.html')
+
+
+# TODO: Stats, get
+@app.route('/Stats', methods=['GET'])
+def Stats():
+    try:
       with db.engine.connect() as connection:
        # Ejecuta la consulta
         sql_query = text(f'EXEC {GET_RATIO}')
@@ -43,7 +49,7 @@ def home():
             except Exception as e:
                 print(f"Error al convertir la fila: {row} - Error: {e}")
       return jsonify(data_json)
-   except Exception as e:
+    except Exception as e:
         return jsonify(f"error: {str(e)}")   
 
 

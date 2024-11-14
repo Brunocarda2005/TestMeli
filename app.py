@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request,make_response
+from flask import Flask, jsonify, request, render_template
 from werkzeug.exceptions import BadRequest
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
