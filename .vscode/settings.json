@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/1c4308a5-d69d-4b05-a1b4-7b3fb94ab64b/resourceGroups/testApp/providers/Microsoft.Web/sites/TestMeli",
+  "appService.deploySubpath": "webApp"
+}
