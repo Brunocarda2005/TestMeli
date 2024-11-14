@@ -16,7 +16,7 @@ password = 'aGUS(2005)'
 
 
 # Crear la conexión
-conm_str = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server&TrustServerCertificate=yes"
+conm_str = f"mssql+pymssql://{username}:{password}@{server}/{database}"
 app.config['SQLALCHEMY_DATABASE_URI'] = conm_str
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
